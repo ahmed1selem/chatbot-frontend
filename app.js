@@ -14,7 +14,12 @@ const defaults = { apiUrl: "http://127.0.0.1:8000", endpoint: "/chat" };
 
 function loadSettings() {
   try {
-    return { ...defaults, ...JSON.parse(localStorage.getItem(STORAGE_KEY)) };
+    const parsed = JSON.parse(localStorage.getItem(STORAGE_KEY));
+    if (parsed && parsed.apiUrl === "http://127.0.0.1:5000") {
+      parsed.apiUrl = "http://127.0.0.1:8000";
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(parsed));
+    }
+    return { ...defaults, ...parsed };
   } catch {
     return { ...defaults };
   }
