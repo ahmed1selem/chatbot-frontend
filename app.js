@@ -10,7 +10,7 @@ const apiUrlInput = document.getElementById("api-url");
 const apiEndpointInput = document.getElementById("api-endpoint");
 
 const STORAGE_KEY = "serenity_settings";
-const defaults = { apiUrl: "http://127.0.0.1:5000", endpoint: "/chat" };
+const defaults = { apiUrl: "http://127.0.0.1:8000", endpoint: "/chat" };
 
 function loadSettings() {
   try {
